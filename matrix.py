@@ -1,7 +1,12 @@
 def get_input():
     matrix = []
-    dim = int(input("What are the dimensions (nxn): "))
-    for i in range(dim):
-        row = list(map(str, input(f"row {i+1}: ").split()))
+    n, m = tuple(map(int, input("What are the dimensions (n, m): ").split(',')))
+    for i in range(n):
+        while len(row := list(map(float, input(f"row {i+1}: ").split()))) != m:
+            print("Enter m entries for each row")
+
+        matrix.append(row)
 
     return matrix
+
+print(get_input())
